@@ -1,0 +1,25 @@
+name: Merge branches
+on:
+  workflow_dispatch:
+    inputs:
+      to:
+        description: 'Branch for merge to'
+        required: true
+        default: 'master'
+      from:
+        description: 'Branch for merge from'
+        required: true
+        default: 'develop'
+jobs:
+  sync-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Merge master -> develop
+        uses: devmasx/merge-branch@v1.3.1
+        with:
+          type: now
+          from_branch: ${{ github.event.inputs.from }}
+          target_branch: ${{ github.event.inputs.to }}
+          github_token: ${{ github.token }}
