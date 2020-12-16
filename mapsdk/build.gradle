@@ -177,7 +177,7 @@ bintray {
     configurations = ['archives']
 
     pkg {
-        userOrg = '2gis'
+        userOrg = '2giss'
         repo = bintrayRepo
         name = bintrayName
         desc = libraryDescription
