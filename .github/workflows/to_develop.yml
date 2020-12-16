@@ -1,4 +1,4 @@
-name: Merge Develop to master
+name: Merge Master to Develop
 on:
   workflow_dispatch:
 jobs:
@@ -7,10 +7,10 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - name: Merge develop -> master
+      - name: Merge master -> develop
         uses: devmasx/merge-branch@v1.3.1
         with:
           type: now
-          from_branch: develop
-          target_branch: master
+          from_branch: master
+          target_branch: develop
           github_token: ${{ github.token }}
